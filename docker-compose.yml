@@ -4,7 +4,7 @@ services:
     container_name: test-website
     restart: unless-stopped
     volumes:
-      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./site:/usr/share/nginx/html:ro
     networks:
       - proxy
 
