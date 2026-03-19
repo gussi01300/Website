@@ -1,0 +1,13 @@
+services:
+  website:
+    image: nginx:alpine
+    container_name: test-website
+    restart: unless-stopped
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
