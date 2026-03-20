@@ -33,7 +33,20 @@
 </head>
 <body>
   <div class="card">
-    <h1>Daniela stinks!</h1>
+    <h1>Hailey, do you like me?</h1>
+    <button onclick="changeText()">Yes</button>
+    <button onclick="changeText2()">No</button>
+    <script>
+        function changeText() {
+            document.getElementById("myText").innerText = "Yes";
+        }
+        function changeText2() {
+            document.getElementById("myText").innerText = "Yes aswell, dummie!";
+        }
+    </script>
+
+    <p id = "myText"></p>
+    
     <p>This HTML page is served from Docker on my server.</p>
     <p>Reverse proxied by Nginx Proxy Manager and published through Cloudflare Tunnel.</p>
   </div>
