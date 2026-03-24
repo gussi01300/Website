@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node backend/app.ts",
     "run-ts": "tsc backend/app.ts --outDir temp && node temp/app.js",
-    "run-test": "tsc backend/test.ts --outDir temp && node temp/test.js"
+    "run-test": "tsc backend/test.ts --outDir temp && node temp/test.js",
+    "run-driver": "tsc backend/driver.ts --outDir temp && node temp/driver.js"
   },
   "repository": {
     "type": "git",
