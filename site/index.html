@@ -32,23 +32,53 @@
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Hailey, do you like me?</h1>
-    <button onclick="changeText()">Yes</button>
-    <button onclick="changeText2()">No</button>
-    <script>
-        function changeText() {
-            document.getElementById("myText").innerText = "Yes";
-        }
-        function changeText2() {
-            document.getElementById("myText").innerText = "Yes aswell, dummie!";
-        }
-    </script>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required />
 
-    <p id = "myText"></p>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required />
+
+    <button type="submit">Login</button>
+  </form>
     
     <p>This HTML page is served from Docker on my server.</p>
     <p>Reverse proxied by Nginx Proxy Manager and published through Cloudflare Tunnel.</p>
   </div>
 </body>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (event) => {
+    event.preventDefault();  // Prevent the form from reloading the page
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        // Sending POST request to the server with login data
+        const response = await fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),  // Send data as JSON
+        });
+
+        const data = await response.json();  // Parse the JSON response
+
+        if (response.ok) {
+            // Successful login
+            console.log('Login successful:', data);
+            // Redirect to dashboard or another page
+            window.location.href = '/dashboard';
+        } else {
+            // Login failed
+            console.error('Login failed:', data.message);
+            alert(data.message);  // Show error message
+        }
+    } catch (error) {
+        console.error('Error during login:', error);
+        alert('Something went wrong. Please try again.');
+    }
+});
+</script>
 </html>
