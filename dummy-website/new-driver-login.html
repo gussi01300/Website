@@ -13,7 +13,7 @@
       margin: 0;
       font-family: Arial, sans-serif;
       min-height: 100vh;
-      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      background: linear-gradient(135deg, #e0f2fe, #bfdbfe);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -70,13 +70,13 @@
     }
 
     button {
-      background: #f59e0b;
+      background: #2563eb;
       color: white;
       margin-bottom: 0.8rem;
     }
 
     button:hover {
-      background: #d97706;
+      background: #1d4ed8;
     }
 
     .back-btn {
@@ -94,12 +94,12 @@
     <h1>Driver Login</h1>
     <p>Sign in to view your next stop and confirm student pickups.</p>
 
-    <form action="driver-dashboard.html">
-      <label for="driver-id">Driver ID</label>
-      <input type="text" id="driver-id" name="driver-id" placeholder="Enter driver ID" />
+    <form id="loginForm">
+      <label for="driver-username">Driver Username</label>
+      <input type="text" id="driver-username" name="driver-username" placeholder="Enter username" required />
 
       <label for="driver-password">Password</label>
-      <input type="password" id="driver-password" name="driver-password" placeholder="Enter password" />
+      <input type="password" id="driver-password" name="driver-password" placeholder="Enter password" required />
 
       <button type="submit">Log In</button>
     </form>
@@ -107,4 +107,40 @@
     <a class="back-btn" href="index.html">Back to Welcome Page</a>
   </div>
 </body>
+<script>
+    document.getElementById("loginForm").addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const username = document.getElementById("driver-username").value;
+        const password = document.getElementById("driver-password").value;
+
+        try {
+          //Sending POST request to the server with login data
+          const response = await fetch("http://localhost:3000/driver-login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({username, password}), //Send data as JSON
+          });
+
+          const data = await response.json(); //Parse JSON response
+
+          if (response.ok) {
+            console.log("Login Successfull")
+            window.location.href = "/dummy-website/driver-dashboard.html"
+          } else {
+            //login failed
+            console.error("Login failed:", data.message);
+            alert(data.message); //show error message
+          }
+        } catch (error) {
+          console.error("Error during login:", error);
+          alert("Something went wrong. Please try again.")
+        }
+        
+    });
+
+
+</script>
 </html>
