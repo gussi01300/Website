@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Driver Dashboard - SchoolBus Connect</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fffdf7;
+      color: #0f172a;
+    }
+
+    .navbar {
+      background: #78350f;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .logout-btn {
+      background: #ef4444;
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .logout-btn:hover {
+      background: #dc2626;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 22px;
+      padding: 2rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .hero-card h2 {
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+    }
+
+    .stop-label {
+      color: #92400e;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.9rem;
+    }
+
+    .address {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 1rem 0;
+      color: #1f2937;
+    }
+
+    .subtext {
+      color: #475569;
+      margin-bottom: 1.5rem;
+    }
+
+    .pickup-btn {
+      width: 100%;
+      max-width: 420px;
+      padding: 1.25rem;
+      border: none;
+      border-radius: 16px;
+      background: #16a34a;
+      color: white;
+      font-size: 1.15rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(22, 163, 74, 0.25);
+    }
+
+    .pickup-btn:hover {
+      background: #15803d;
+    }
+
+    .info-grid {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 18px;
+      padding: 1.3rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+    }
+
+    .info-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: #92400e;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1>SchoolBus Connect - Driver Dashboard</h1>
+    <a class="logout-btn" href="index.html">Log Out</a>
+  </header>
+
+  <main class="container">
+    <section class="hero-card">
+      <div class="stop-label">Next Stop</div>
+      <div class="address">1428 Maple Street, Mississauga</div>
+      <p class="subtext">
+        Proceed to the next pickup location and confirm once the student has been picked up.
+      </p>
+
+      <button class="pickup-btn" onclick="alert('Demo only: Pickup submitted successfully.')">
+        Mark Student as Picked Up
+      </button>
+    </section>
+
+    <section class="info-grid">
+      <div class="info-card">
+        <h3>Route</h3>
+        <p>Route 12B</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Current Time</h3>
+        <p>7:31 AM</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Status</h3>
+        <p>Running on schedule</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

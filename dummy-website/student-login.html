@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Login - SchoolBus Connect</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #e0f2fe, #bfdbfe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 450px;
+      background: white;
+      padding: 2.2rem;
+      border-radius: 22px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+
+    p {
+      color: #475569;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-weight: bold;
+      color: #1e293b;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      margin-bottom: 1.1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      font-size: 1rem;
+    }
+
+    button, .back-btn {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      margin-bottom: 0.8rem;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .back-btn {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .back-btn:hover {
+      background: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h1>Student Login</h1>
+    <p>Sign in to view your bus status and manage your pickup.</p>
+
+    <form action="student-dashboard.html">
+      <label for="student-id">Student Username</label>
+      <input type="text" id="student-id" name="student-id" placeholder="Enter username" required />
+
+      <label for="student-password">Password</label>
+      <input type="password" id="student-password" name="student-password" placeholder="Enter password" required />
+
+      <button type="submit">Log In</button>
+    </form>
+
+    <a class="back-btn" href="index.html">Back to Welcome Page</a>
+  </div>
+</body>
+</html>
